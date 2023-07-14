@@ -3,9 +3,11 @@ package com.sbs.java.ssg.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sbs.java.ssg.container.Container;
 import com.sbs.java.ssg.dto.Article;
 
+import lombok.Data;
+
+@Data
 public class ArticleDao extends Dao {
 	public List<Article> articles;
 
