@@ -11,7 +11,7 @@ import com.sbs.java.ssg.db.DBConnection;
 
 public class App {
 	public App() {
-		DBConnection.DB_NAME = "sbs_pro";
+		DBConnection.DB_NAME = "sbs_proj";
 		DBConnection.DB_USER = "sbsst";
 		DBConnection.DB_PASSWORD = "sbs123414";
 		DBConnection.DB_PORT = 3306;
@@ -28,8 +28,8 @@ public class App {
 		ArticleController articleController = new ArticleController(sc);
 		ExportController exportController = new ExportController(sc);
 
-		articleController.makeTestData();
-		memberController.makeTestData();
+//		articleController.makeTestData();
+//		memberController.makeTestData();
 
 		while (true) {
 			System.out.printf("명령어) ");

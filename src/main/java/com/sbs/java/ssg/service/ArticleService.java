@@ -8,11 +8,11 @@ import com.sbs.java.ssg.dto.Article;
 
 public class ArticleService {
 	private ArticleDao articleDao;
-	
+
 	public ArticleService() {
 		articleDao = Container.articleDao;
 	}
-	
+
 	public List<Article> getForPrintArticles(String searchkeyword) {
 		return articleDao.getForPrintArticles(searchkeyword);
 	}
@@ -31,6 +31,10 @@ public class ArticleService {
 
 	public List<Article> getForPrintArticles() {
 		return articleDao.getForPrintArticles(null);
+	}
+
+	public List<Article> getArticles() {
+		return articleDao.getArticles();
 	}
 
 }
