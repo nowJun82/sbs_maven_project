@@ -17,7 +17,7 @@ public class MemberController extends Controller {
 	public MemberController(Scanner sc) {
 		this.sc = sc;
 		memberService = Container.memberService;
-		this.session = new Session();
+		session = Container.getSession();
 	}
 
 	public void doAction(String command, String actionMethodName) {
@@ -38,14 +38,6 @@ public class MemberController extends Controller {
 			System.out.println("존재하지 않는 명령어 입니다.");
 			break;
 		}
-	}
-
-	public void makeTestData() {
-		System.out.println("테스트를 위한 데이터를 생성합니다.");
-
-		memberService.join(new Member(Container.memberDao.getNewId(), Util.getNowDateStr(), "admin", "admin", "관리자"));
-		memberService.join(new Member(Container.memberDao.getNewId(), Util.getNowDateStr(), "user1", "user1", "홍길동"));
-		memberService.join(new Member(Container.memberDao.getNewId(), Util.getNowDateStr(), "user2", "user2", "홍길순"));
 	}
 
 	private boolean isJoinableLoginId(String loginId) {
@@ -121,9 +113,10 @@ public class MemberController extends Controller {
 			return;
 		}
 
-		Member loginedMember = Container.getSession().getLogindMember();
+		session.setLoginedMember(member);
+		Member loginedMember = session.getLogindMember();
 
-		System.out.printf("로그인 성공! %s님 환영합니다!\n", loginedMember);
+		System.out.printf("로그인 성공! %s님 환영합니다!\n", loginedMember.name);
 	}
 
 	private void doLogout() {
