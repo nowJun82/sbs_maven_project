@@ -109,7 +109,7 @@ public class MemberController extends Controller {
 		}
 
 		session.setLoginedMember(member);
-		Member loginedMember = session.getLogindMember();
+		Member loginedMember = session.getLoginedMember();
 
 		System.out.printf("로그인 성공! %s님 환영합니다!\n", loginedMember.name);
 	}
